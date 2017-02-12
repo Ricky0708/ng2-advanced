@@ -5,8 +5,10 @@ import { LayoutComponent } from './layout/layout.component';
 import { Page2Component } from './page2/page2.component';
 
 const routes: Routes = [
-  { path: '',         component: LayoutComponent },
-  { path: 'page2',    component: Page2Component }
+  { path: '',         redirectTo: '/layout',  pathMatch: 'full' },
+  { path: 'layout',   component: LayoutComponent },
+  { path: 'page2',    component: Page2Component },
+  { path: '**',         redirectTo: '/layout',  pathMatch: 'full' }
 ];
 
 @NgModule({
