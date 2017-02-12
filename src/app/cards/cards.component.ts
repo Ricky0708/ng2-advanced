@@ -25,7 +25,10 @@ export class CardsComponent implements OnInit {
   }
 
   goCards(type) {
-    this.router.navigateByUrl('/cards/' + type);
+    // this.router.navigateByUrl('/cards/' + type);
+
+    // this.router.navigate(['/cards', type]);
+    this.router.navigate(['..', type], { relativeTo: this.route });
   }
 
   // 13 練習兩種不同的可選參數用法 (Optional Parameters)
