@@ -21,6 +21,9 @@ export class FlotComponent implements OnInit, OnDestroy {
     this.parentParams$ = this.route.parent.params.subscribe(params => {
       console.log(params['username']);
     });
+
+    // 透過 this.route.snapshot.parent 也可以直接取得上層路由參數
+    this.route.snapshot.parent.params['username'];
   }
 
   ngOnDestroy() {
