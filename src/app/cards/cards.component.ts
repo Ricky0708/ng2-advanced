@@ -11,7 +11,7 @@ export class CardsComponent implements OnInit {
 
   type: string;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) { } 
 
   ngOnInit() {
     this.type = this.route.snapshot.params['type'];
