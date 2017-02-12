@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Route, Routes, RouterModule } from '@angular/router';
 
 import { LayoutComponent } from './layout/layout.component';
 import { Page2Component } from './page2/page2.component';
+
+import { fallbackRoute } from './shared/fallback-route';
 
 const routes: Routes = [
   { path: '',         redirectTo: '/layout',  pathMatch: 'full' },
   { path: 'layout',   component: LayoutComponent },
   { path: 'page2',    component: Page2Component },
-  { path: '**',         redirectTo: '/layout',  pathMatch: 'full' }
+  fallbackRoute
 ];
 
 @NgModule({
