@@ -21,7 +21,7 @@ export class CardsComponent implements OnInit {
 
     this.route.queryParams.subscribe( params => {
       console.log('QueryString: ' + params['name']);
-    })
+    });
   }
 
   goCards(type) {
@@ -37,7 +37,7 @@ export class CardsComponent implements OnInit {
       queryParams: {
         name: 'QueryString1'
       }
-    })
+    });
   }
 
   goMatrix() {
