@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Validators, FormGroup,  FormBuilder} from '@angular/forms';
+import {FormArray, Validators,  FormGroup,   FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-reactiveform',
@@ -13,7 +13,13 @@ export class ReactiveformComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      'name': ['Will', [Validators.required, Validators.minLength(3)]]
+      'name': ['Will', [Validators.required, Validators.minLength(3)]],
+      'group1': this.fb.array([
+        this.fb.control('Will1', Validators.required),
+        this.fb.control('Will2', Validators.required),
+        this.fb.control('Will3', Validators.required),
+        this.fb.control('Will4', Validators.required)
+      ])
     });
   }
 
@@ -23,6 +29,9 @@ export class ReactiveformComponent implements OnInit {
 
   ngOnInit() {
     this.form.addControl('email', this.fb.control('default@example.com', Validators.required));
+
+    let group1: FormArray = <FormArray>this.form.controls['group1'];
+    group1.insert(group1.length, this.fb.control('Will 5'));
   }
 
 }
