@@ -1,4 +1,4 @@
-import {HostListener, HostBinding,  Directive} from '@angular/core';
+import { HostListener, HostBinding, Directive, Input } from '@angular/core';
 
 @Directive({
   selector: '.pt0[apply-counter]'
@@ -6,6 +6,7 @@ import {HostListener, HostBinding,  Directive} from '@angular/core';
 export class ApplyCounterDirective {
 
   @HostBinding('class.bg-success')
+  @Input()
   bgClass = false;
 
   @HostListener('click', ['$event'])
@@ -16,9 +17,9 @@ export class ApplyCounterDirective {
 
   constructor() {
 
-    setTimeout(() => {
-      this.bgClass = true;
-    }, 5000);
+    // setTimeout(() => {
+    //   this.bgClass = true;
+    // }, 5000);
 
   }
 
