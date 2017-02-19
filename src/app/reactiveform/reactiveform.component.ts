@@ -33,7 +33,8 @@ export class ReactiveformComponent implements OnInit {
     this.form.addControl('email', this.fb.control('default@example.com'));
 
     let group1: FormArray = <FormArray>this.form.controls['group1'];
-    group1.insert(group1.length, this.fb.control('Will 5', NoWillValidator));
+    group1.insert(group1.length, this.fb.control('Will 5',
+      [NoWillValidator, Validators.minLength(2)]));
   }
 
   // NoWillValidator(c: AbstractControl) {
