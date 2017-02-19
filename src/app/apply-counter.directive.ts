@@ -1,7 +1,7 @@
 import {HostListener, HostBinding,  Directive} from '@angular/core';
 
 @Directive({
-  selector: '[apply-counter]'
+  selector: '.pt0[apply-counter]'
 })
 export class ApplyCounterDirective {
 
