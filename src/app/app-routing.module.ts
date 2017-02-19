@@ -1,3 +1,5 @@
+import { LoginRouteGuard } from './login-route-guard';
+import { InputRouteGuard } from './input-route-guard';
 import { LoginComponent } from './login/login.component';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { FormComponent } from './form/form.component';
@@ -17,13 +19,13 @@ const routes: Routes = [
       { path: 'form',   component: FormComponent },
       { path: 'reactiveform',   component: ReactiveformComponent },
       { path: 'dashboard',   component: DashboardComponent },
-      { path: 'cards/:type', component: CardsComponent },
+      { path: 'cards/:type', component: CardsComponent, canActivate: [LoginRouteGuard] },
       { path: 'charts/:username',
         loadChildren: './charts/charts.module#ChartsModule'
       }
     ]
   },
-  { path: 'login',  component: LoginComponent },
+  { path: 'login',  component: LoginComponent, canDeactivate: [InputRouteGuard] },
   fallbackRoute
 ];
 

@@ -1,3 +1,5 @@
+import { InputRouteGuard } from './input-route-guard';
+import { LoginRouteGuard } from './login-route-guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -33,7 +35,7 @@ import { LayoutComponent } from './layout/layout.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LoginRouteGuard, InputRouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
