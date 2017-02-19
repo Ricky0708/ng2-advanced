@@ -1,5 +1,5 @@
 import { SkyComponent } from './../sky/sky.component';
-import {ViewChild, Component,  OnInit} from '@angular/core';
+import {ViewChildren, QueryList,  ViewChild,   Component,    OnInit} from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,6 +12,9 @@ export class CardsComponent implements OnInit {
 
   @ViewChild(SkyComponent)
   sky: SkyComponent;
+
+  @ViewChildren(SkyComponent)
+  skies: QueryList<SkyComponent>;
 
   type: string;
 
@@ -30,6 +33,15 @@ export class CardsComponent implements OnInit {
 
   ngAfterViewInit() {
     console.log(this.sky.name);
+
+    this.skies.forEach(x => {
+      console.log(x.titleimg);
+    });
+  }
+
+  counter = 10;
+  incCounter() {
+    this.counter++;
   }
 
   checkSkyInputDirty() {
