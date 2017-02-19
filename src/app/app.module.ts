@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardsComponent } from './cards/cards.component';
 import { FormComponent } from './form/form.component';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     CardsComponent,
-    FormComponent
+    FormComponent,
+    ReactiveformComponent
   ],
   imports: [
     BrowserModule,
