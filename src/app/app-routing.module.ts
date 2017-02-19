@@ -1,3 +1,4 @@
+import { FormComponent } from './form/form.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, Route,  Routes,  RouterModule} from '@angular/router';
 
@@ -7,6 +8,7 @@ import { CardsComponent } from './cards/cards.component';
 import { fallbackRoute } from './shared/fallback-route';
 
 const routes: Routes = [
+  { path: 'form',   component: FormComponent },
   { path: 'dashboard',   component: DashboardComponent },
   { path: 'cards/:type', component: CardsComponent },
   { path: 'charts/:username',
