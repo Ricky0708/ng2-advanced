@@ -17,6 +17,10 @@ export class ReactiveformComponent implements OnInit {
     });
   }
 
+  getFieldInvalid(fieldName) {
+    return this.form.controls[fieldName].invalid;
+  }
+
   ngOnInit() {
   }
 
