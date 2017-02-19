@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import {FormArray, Validators,  FormGroup,   FormBuilder} from '@angular/forms';
+import {AbstractControl, FormArray,  Validators,   FormGroup,    FormBuilder} from '@angular/forms';
+
+import { NoWillValidator } from '../shared/no-will-validator';
 
 @Component({
   selector: 'app-reactiveform',
@@ -23,15 +25,25 @@ export class ReactiveformComponent implements OnInit {
     });
   }
 
-  getFieldInvalid(fieldName) {
-    return this.form.controls[fieldName].invalid;
+  getFieldInvalid(fieldName, prefix="") {
+    return this.form.get(prefix+fieldName).invalid;
   }
 
   ngOnInit() {
-    this.form.addControl('email', this.fb.control('default@example.com', Validators.required));
+    this.form.addControl('email', this.fb.control('default@example.com'));
 
     let group1: FormArray = <FormArray>this.form.controls['group1'];
-    group1.insert(group1.length, this.fb.control('Will 5'));
+    group1.insert(group1.length, this.fb.control('Will 5', NoWillValidator));
   }
 
+  // NoWillValidator(c: AbstractControl) {
+  //   if(c.value == 'Will') {
+  //     return {
+  //       NoWill: true
+  //     };
+  //   }
+  //   else {
+  //     return null;
+  //   }
+  // }
 }
