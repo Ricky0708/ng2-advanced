@@ -13,7 +13,7 @@ export class ReactiveformComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      'name': ['Will', Validators.required]
+      'name': ['Will', [Validators.required, Validators.minLength(3)]]
     });
   }
 
